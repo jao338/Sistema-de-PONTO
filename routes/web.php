@@ -22,9 +22,26 @@ Route::get('/register', function () {
     return view('auth/register');
 });
 
+Route::get('/dashboard/register', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard-register');
+
+Route::get('/dashboard/users', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard-users');
+
+Route::get('/dashboard/sectors', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard-sectors');
+
+Route::get('/dashboard/hours', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard-hours');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
