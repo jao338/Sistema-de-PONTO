@@ -4,24 +4,29 @@
             {{ __('Meus horários') }}
         </h2>
 
-        <span id="clock">00:00:00</span>
+        <span id="clock" class="fw-bolder">00:00:00</span>
 
     </x-slot>
 
     {{-- Listagem dos horários --}}
+
+    @if (session('msg'))
+        <p class="mB-16">{{ session('msg') }}</p>
+    @endif
+
     <table class="table table-borderless shadow rounded ">
         <thead>
             <tr>
 
                 <th class="d-flex align-items-center">
-                    <span class="fw-bolder">Sistema de Ponto</span>
+                    <span class="fw-bolder">Registrar horário de entrada</span>
                 </th>
 
                 <th></th>
                 <th></th>
                 <th></th>
 
-                <form action="" method="GET">
+                <form action="/dashboard/{{ date("h:i:s") }}" method="GET">
                     <th class="d-flex justify-content-end">
                         <button class="btn btn-light border">Registrar</button>
                     </th>
@@ -35,9 +40,10 @@
                 <th scope="col" class="border-end">Saída Almoço</th>
                 <th scope="col">Hora de saída</th>
             </tr>
+            
         </thead>
         <tbody>
-            <tr>
+            <tr class="border-bottom">
                 <th scope="row" class="border-end">07/12</th>
                 <td class="border-end">07:58:32</td>
                 <td class="border-end">07:58:32</td>

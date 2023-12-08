@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HourController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,8 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/register', function () {
-    return view('auth/register');
-});
+Route::get('/dashboard', [HourController::class, 'index'])->middleware('auth')->name("dashboard");
+Route::get('/dashboard/{hour}', [HourController::class, 'teste'])->middleware('auth');
 
 Route::get('/dashboard/users', function () {
     return view('dashboard');
@@ -29,11 +29,6 @@ Route::get('/dashboard/users', function () {
 Route::get('/dashboard/sectors', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard-sectors');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
