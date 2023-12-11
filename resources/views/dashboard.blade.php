@@ -19,7 +19,7 @@
             <tr>
 
                 <th class="d-flex align-items-center">
-                    <span class="fw-bolder">Registrar horário de entrada</span>
+                    <span class="fw-bolder">Sistema PONTO</span>
                 </th>
 
                 <th></th>
@@ -44,16 +44,32 @@
             
         </thead>
         <tbody>
-            <tr class="border-bottom">
-                <th scope="row" class="border-end">07/12</th>
-                <td class="border-end">07:58:32</td>
-                <td class="border-end">07:58:32</td>
-                <td class="border-end">07:58:32</td>
-                <td>13:05:14</td>
-            </tr>
+            
+            @if (isset($hours) && count($hours) > 0)
+            
+                @foreach ($hours as $hour)
+                    <tr class="border-bottom">
+                        <th scope="row" class="border-end">{{ $hour->entrance }}</th>
+                        <td class="border-end">{{ $hour->entrance }}</td>
+                        <td class="border-end">{{ $hour->entrance_lunch }}</td>
+                        <td class="border-end">{{ $hour->exit_lunch }}</td>
+                        <td>{{ $hour->exit }}</td>
+                    </tr>
+                @endforeach
+            
+            @else
+                <tr class="border-bottom">
+                    <th scope="row" class="border-end">XX</th>
+                    <td class="border-end">XX:XX:XX</td>
+                    <td class="border-end">XX:XX:XX</td>
+                    <td class="border-end">XX:XX:XX</td>
+                    <td>XX:XX:XX</td>
+                </tr>
+            @endif
+
         </tbody>
 
-    </table>    
+    </table>
 
     <script>
         
