@@ -11,8 +11,9 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up(){
+
+        //  Ao criar a migration o certo seria "dateTime" ao invés de "datetime". Esse erro faz com que o tipo da coluna seja do apenas "date"
         Schema::create('hours', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

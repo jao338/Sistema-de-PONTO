@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [HourController::class, 'index'])->middleware('auth')->name("dashboard");
-Route::get('/dashboard/{hour}', [HourController::class, 'teste'])->middleware('auth');
+Route::post('/dashboard', [HourController::class, 'register'])->middleware('auth');
 
 Route::get('/dashboard/users', function () {
     return view('dashboard');

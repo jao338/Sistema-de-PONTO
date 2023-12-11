@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hour;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HourController extends Controller{
@@ -11,9 +13,18 @@ class HourController extends Controller{
         return view("/dashboard");
     }
 
-    public function teste(){
+    public function register(){
+        
+        $hour = new Hour();
+        $user = auth()->user();
 
-        return view("/dashboard")->with('msg', "Registrado com sucesso!");
+        $hour->user_id = $user->id;
+        $hour->entrance = Carbon::now()->format('Y-m-d H:i:s');
+
+        $hour->save();
+
+        return redirect('/dashboard')->with('msg', "Registrado com sucesso");
+
     }
 
 }

@@ -26,7 +26,8 @@
                 <th></th>
                 <th></th>
 
-                <form action="/dashboard/{{ date("h:i:s") }}" method="GET">
+                <form action="/dashboard" method="POST">
+                    @csrf
                     <th class="d-flex justify-content-end">
                         <button class="btn btn-light border">Registrar</button>
                     </th>
@@ -52,7 +53,7 @@
             </tr>
         </tbody>
 
-    </table>
+    </table>    
 
     <script>
         
