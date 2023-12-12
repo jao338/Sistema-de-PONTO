@@ -1,4 +1,3 @@
-
 {{-- Listagem dos horários --}}
 
 @if (session('msg'))
@@ -10,7 +9,7 @@
             <tr>
 
                 <th class="d-flex align-items-center">
-                    <span class="fw-bolder">Sistema PONTO</span>
+                    <span class="fw-bolder">Registrar entrada</span>
                 </th>
 
                 <th></th>
@@ -20,7 +19,7 @@
                 <form action="/dashboard" method="POST">
                     @csrf
                     <th class="d-flex justify-content-end">
-                        <button class="btn btn-light border">Registrar</button>
+                        <button class="btn btn-outline-secondary">Registrar</button>
                     </th>
                 </form>
             </tr>            

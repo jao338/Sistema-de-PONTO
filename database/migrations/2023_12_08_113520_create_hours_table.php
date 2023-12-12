@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('hours', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->datetime("entrance");
+            $table->dateTime("entrance");
             $table->datetime("entrance_lunch");
             $table->datetime("exit");
             $table->datetime("exit_lunch");
