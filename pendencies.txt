@@ -1,4 +1,4 @@
-X - Ao usar cadastrar verificar se existe algum registro. Após isso, verificar se a data atual já está cadastrada no banco. Em seguida verificar qual coluna ainda não foi preenchido.
+X - Ao usar cadastrar verificar se existe algum registro. Após isso, verificar se a data atual já está cadastrada no banco. Em seguida verificar qual coluna ainda não foi preenchida.
 
 X - Cadastrar setores e usuários, sendo que cada usuário DEVE PERTENCER A APENAS UM SETOR e UM SETOR PODE POSSUIR VÁRIOS USUÁRIOS
 
