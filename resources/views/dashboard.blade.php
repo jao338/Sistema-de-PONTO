@@ -26,32 +26,19 @@
 
     @endif
     
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="/js/script.js"></script>
+
     <script>
-        
-        let clock = document.querySelector("#clock");
-    
-        //  Seleciona e troca o texto do elemento de "#clock" pelo horário atual
-        function updateClock(){
-    
-            let date = new Date();
-    
-            let hours = fixZero(date.getHours()) + ":" + fixZero(date.getMinutes()) + ":" + fixZero(date.getSeconds());
-    
-            clock.innerHTML = hours;
-        }
-    
-        //  Verifica se o argumento passado é menor que 10, caso seja retorna zero concatenado com o argumento. Caso seja igual ou maior que 10, retorna o próprio argumento
-        function fixZero(time){
-    
-            return time < 10 ? `0${time}` : time;
-    
-        }
-    
-        //  Chama a função "updateClock()" a cada 1 sec
-        setInterval(updateClock, 1000);
-        updateClock();
-    
-        </script>
+
+        $(document).ready(function() {
+            $('.dropdown-toggle').dropdown();
+        });
+
+    </script>
+
 </x-app-layout>
 
 
