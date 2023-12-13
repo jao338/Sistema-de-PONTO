@@ -7,5 +7,3 @@ X - Melhorar a navegação entre páginas, alterando o estado da aba ativa na vi
 X - A tabela de setores deve possuir as seguintes colunas: Id, nome, descrição e horário de entrada e de saída.
 
 X - Os usuários devem possuir diferentes níveis de acesso, sendo que APENAS o administrador do sistema poderá cadastrar novos setores ou usuários
-
-X - 
