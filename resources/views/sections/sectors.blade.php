@@ -1,3 +1,11 @@
+<div class="mB-16">
+    
+    @if (session('msg'))
+        <p>{{ session("msg") }}</p>
+    @endif
+
+</div>
+
 <div class="d-flex align-items-center mB-16">
     <form action="#" method="GET" class="w-100">
         <div class="input-group">
@@ -9,7 +17,7 @@
     
     </form>
     
-    <form action="/dashboard/sectors/create" method="POST" class="mL-16">
+    <form action="/dashboard/sectors/create" method="GET" class="mL-16">
         @csrf
     
         <button type="submit" class="btn btn-outline-secondary" name="btnCreateSectors">Criar</button>
@@ -17,15 +25,48 @@
     </form>
 </div>
 
-<a class="row mB-16 pT-8 pB-8 border" href="/dashboard/sectors">
+<div class="row border-top border-start border-end pT-8 pB-8">
 
     <div class="d-flex align-items-center col-md-3 pL-8">
-        <span>Nome do setor</span>
+        <span class="fw-bold">Nome</span>
     </div>
 
     <div class="d-flex align-items-center col-md-9">
-        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+        <span class="fw-bold">Breve descrição</span>
     </div>
-</a>
+
+
+</div>
+
+@if (!isset($sectors))
+    
+    <a class="row mB-16 pT-8 pB-8 border" href="/dashboard/sectors">
+
+        <div class="d-flex align-items-center col-md-3 pL-8">
+            <span>ADM</span>
+        </div>
+
+        <div class="d-flex align-items-center col-md-9">
+            <span>Resoosepok</span>
+        </div>
+    </a>
+@else
+    
+    @foreach ($sectors as $sector)
+        
+        <a class="row pT-8 pB-8 border" href="/dashboard/sectors">
+
+            <div class="d-flex align-items-center col-md-3 pL-8">
+                <span>{{ $sector->name }}</span>
+            </div>
+
+            <div class="d-flex align-items-center col-md-9">
+                <span>{{ $sector->description }}</span>
+            </div>
+        </a>
+
+    @endforeach
+
+@endif
 
 
