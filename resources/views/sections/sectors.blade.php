@@ -11,7 +11,7 @@
 
 <a class="row mB-16 pT-8 pB-8 border" href="/dashboard/sectors">
 
-    <div class="d-flex align-items-center col-md-3">
+    <div class="d-flex align-items-center col-md-3 pL-8">
         <span>Nome do setor</span>
     </div>
 

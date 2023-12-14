@@ -44,9 +44,7 @@
 
             <select class="d-flex form-select" aria-label="Default select example" id="optionsSectors">
                 <option selected id="dep">Departamentos</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="1">One</option> 
               </select>
             
             <x-primary-button class="w-100 mT-16 flex justify-center">
