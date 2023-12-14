@@ -1,10 +1,6 @@
-<div class="mB-16">
-    
-    @if (session('msg'))
-        <p>{{ session("msg") }}</p>
-    @endif
-
-</div>
+@if (session('msg'))
+    <p>{{ session("msg") }}</p>
+@endif
 
 <div class="d-flex align-items-center mB-16">
     <form action="#" method="GET" class="w-100">
@@ -31,10 +27,13 @@
         <span class="fw-bold">Nome</span>
     </div>
 
-    <div class="d-flex align-items-center col-md-9">
-        <span class="fw-bold">Breve descrição</span>
+    <div class="d-flex align-items-center col-md-6">
+        <span class="fw-bold">Descrição</span>
     </div>
 
+    <div class="d-flex align-items-center col-md-3">
+        <span class="fw-bold">QTD. Funcionários</span>
+    </div>
 
 </div>
 
@@ -46,8 +45,12 @@
             <span>ADM</span>
         </div>
 
-        <div class="d-flex align-items-center col-md-9">
-            <span>Resoosepok</span>
+        <div class="d-flex align-items-center col-md-6">
+            <span>Alguma coisa</span>
+        </div>
+
+        <div class="d-flex align-items-center col-md-3">
+            <span>15</span>
         </div>
     </a>
 @else
@@ -60,9 +63,14 @@
                 <span>{{ $sector->name }}</span>
             </div>
 
-            <div class="d-flex align-items-center col-md-9">
+            <div class="d-flex align-items-center col-md-6">
                 <span>{{ $sector->description }}</span>
             </div>
+
+            <div class="d-flex align-items-center col-md-3">
+                <span>{{ $sector->description }}</span>
+            </div>
+            
         </a>
 
     @endforeach

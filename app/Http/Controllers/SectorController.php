@@ -9,7 +9,8 @@ class SectorController extends Controller{
     
     public function index(){
 
-        $sectors = Sector::all();
+        // $sectors = Sector::all();
+        $sectors = Sector::join('');
 
         return view("dashboard", ['sectors' => $sectors]);
 
