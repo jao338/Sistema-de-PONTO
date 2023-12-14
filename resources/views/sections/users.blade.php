@@ -1,7 +1,7 @@
 <form method="POST" action="{{ route('register') }}" class="flex flex-col">
     @csrf
 
-    <div class="row flex justify-center border p-32" style="height: 70vh">
+    <div class="row flex justify-center p-32" style="height: 70vh">
 
         <div class="rectangle border p-32">
 
@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <div class="flex mB-16">
+            <div class="flex mB-32">
                 
                 <div class="w-50 mR-16">
                     <x-input-label for="password" :value="__('Password')" class="pL-8" />    
@@ -42,14 +42,14 @@
 
             </div>
 
-            <select class="d-flex form-select" aria-label="Default select example" id="optionsSectors">
+            <select class="d-flex form-select mB-32" id="optionsSectors">
                 <option selected id="dep">Departamentos</option>
                 <option value="1">One</option> 
-              </select>
+            </select>
             
-            <x-primary-button class="w-100 mT-16 flex justify-center">
-                <span>Cadastrar</span>
-            </x-primary-button>
+            <button type="submit" class="btn w-100 mT-16 flex justify-center" style="background-color: rgb(31 41 55)">
+                <span class="text-light">Cadastrar</span>
+            </button>
         
         </div>
 

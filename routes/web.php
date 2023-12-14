@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HourController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SectorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +27,9 @@ Route::get('/dashboard/users', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard-users');
 
-Route::get('/dashboard/sectors', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard-sectors');
+Route::get('/dashboard/sectors', [SectorController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard-sectors');
+
+Route::post('/dashboard/sectors/create', [SectorController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard-sectors-create');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
