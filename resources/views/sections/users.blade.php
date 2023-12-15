@@ -24,7 +24,7 @@
     </div>
 
     <div class="d-flex align-items-center col-md-3">
-        <span class="fw-bold">Departamento correspondente</span>
+        <span class="fw-bold">Departamento</span>
     </div>
 
     <div class="d-flex align-items-center col-md-3">
@@ -37,21 +37,52 @@
 
 </div>
 
-<div class="row mB-16 pT-8 pB-8 border" href="/dashboard/sectors">
+@if (!isset($users))
 
-    <div class="d-flex align-items-center col-md-3 pL-8">
-        <span>João Henrique</span>
+    <div class="row mB-16 pT-8 pB-8 pT-8 border">
+    
+        <div class="d-flex align-items-center col-md-3 pL-8">
+            <span>Nome</span>
+        </div>
+    
+        <div class="d-flex align-items-center col-md-3">
+            <span>T.I</span>
+        </div>
+    
+        <div class="d-flex align-items-center col-md-3">
+            <span>08:00:00</span>
+        </div>
+    
+        <div class="d-flex align-items-center col-md-3">
+            <span>13:00:00</span>
+        </div>
     </div>
+    
+    @else
 
-    <div class="d-flex align-items-center col-md-3">
-        <span>T.I</span>
-    </div>
+    @foreach ($users as $user)
+    
+        <div class="row pT-8 pB-8 pT-8 border">
+        
+            <div class="d-flex align-items-center col-md-3 pL-8">
+                <span>{{ $user->name }}</span>
+            </div>
+    
+            <div class="d-flex align-items-center col-md-3">
+                <span>T.I</span>
+            </div>
+    
+            <div class="d-flex align-items-center col-md-3">
+                <span>08:00:00</span>
+            </div>
+    
+            <div class="d-flex align-items-center col-md-3">
+                <span>13:00:00</span>
+            </div>
+            
+        </div>
 
-    <div class="d-flex align-items-center col-md-3">
-        <span>08:00:00</span>
-    </div>
+    @endforeach
 
-    <div class="d-flex align-items-center col-md-3">
-        <span>13:00:00</span>
-    </div>
-</div>
+    @endif
+    

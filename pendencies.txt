@@ -11,3 +11,7 @@ X - A tabela de usuários deve possuir as seguintes colunas: Id, nome, senha, em
 X - Os usuários devem possuir diferentes níveis de acesso, sendo que APENAS o administrador do sistema poderá cadastrar novos setores ou usuários. Todos os usuários do sistema que pertencerem ao departamento de T.I possuem nível de administrador.
 
 X - Ainda falta realizar um innerJoin para exibir a quantidade de usuários na aba de setores
+
+X - Na tela de usuários é necessário fazer um innerJoin para exibir o nome do departamento correspondente, bem como horário de entrada e saída
+
+X - Melhorar a ordem de criação das tabelas nas migrations. Sempre que um usuário for criado é necessário atribuir um id do setor que ele pertence, portanto caso não haja nenhum setor cadastrado não será possível criar um novo usuário.

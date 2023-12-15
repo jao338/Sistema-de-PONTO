@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'sec_id',
     ];
 
     /**
@@ -46,6 +47,12 @@ class User extends Authenticatable
     public function hours(){
 
         return $this->hasMany(Hour::class);
+
+    }
+
+    public function sector(){
+     
+        return $this->belongsTo(Sector::class);
 
     }
 }

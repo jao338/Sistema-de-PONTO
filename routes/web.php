@@ -24,15 +24,14 @@ Route::get('/', function () {
 Route::get('/dashboard', [HourController::class, 'index'])->middleware('auth')->name("dashboard");
 Route::post('/dashboard', [HourController::class, 'register'])->middleware('auth');
 
-Route::get('/dashboard/users', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard-users');
+Route::get('/dashboard/users', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard-users');
 
 Route::get('/dashboard/sectors', [SectorController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard-sectors');
-
 Route::get('/dashboard/sectors/create', [SectorController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard-sectors-create');
 Route::post('/dashboard/sectors/create', [SectorController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard-sectors-create');
+
 Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard-users-create');
+Route::post('/dashboard/users/create', [UserController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard-users-create');
 
 
 Route::middleware('auth')->group(function () {

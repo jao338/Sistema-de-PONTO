@@ -1,4 +1,4 @@
-<form method="POST" action="" class="flex flex-col">
+<form method="POST" action="/dashboard/sectors/create" class="flex flex-col">
     @csrf
 
     <div class="row flex justify-center p-32" style="height: 70vh">

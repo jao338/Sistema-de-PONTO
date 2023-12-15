@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('register') }}" class="flex flex-col">
+<form method="POST" action="/dashboard/users/create" class="flex flex-col">
     @csrf
 
     <div class="row flex justify-center p-32" style="height: 70vh">
@@ -56,7 +56,7 @@
 
             </div>
 
-            <select class="d-flex form-select mB-32" id="optionsSectors">
+            <select class="d-flex form-select mB-32" id="sec_id" name="sec_id">
 
                 @if (!isset($sectors))
                     <option selected id="dep">Departamentos</option>
@@ -68,7 +68,6 @@
                     @foreach ($sectors as $sector)
                         <option value="{{ $sector->id }}">{{ $sector->name }}</option>         
                     @endforeach
-
                     
                 @endif
             </select>

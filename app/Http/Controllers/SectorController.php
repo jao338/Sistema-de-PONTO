@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sector;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SectorController extends Controller{
     
     public function index(){
 
-        // $sectors = Sector::all();
-        $sectors = Sector::join('');
+        $sectors = Sector::all();
 
         return view("dashboard", ['sectors' => $sectors]);
 
