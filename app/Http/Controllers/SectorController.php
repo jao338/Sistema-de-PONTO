@@ -12,7 +12,9 @@ class SectorController extends Controller{
 
         $sectors = Sector::all();
 
-        return view("dashboard", ['sectors' => $sectors]);
+        $users = User::all();
+
+        return view("dashboard", ['sectors' => $sectors, 'users' => $users]);
 
     }
 
@@ -34,6 +36,18 @@ class SectorController extends Controller{
 
         return redirect("dashboard")->with("msg", "Setor cadastrado com sucesso!");
 
+    }
+
+    public function show($id){
+
+        $sector = Sector::findOrFail($id);
+
+        return view("dashboard", ['sector' => $sector]);
+    }
+
+    public function edit(Request $request){
+
+        return redirect("dashboard")->with("msg", "Setor atualizado com sucesso!");
     }
 
 }

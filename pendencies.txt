@@ -15,3 +15,7 @@ X - Ainda falta realizar um innerJoin para exibir a quantidade de usuários na a
 X - Na tela de usuários é necessário fazer um innerJoin para exibir o nome do departamento correspondente, bem como horário de entrada e saída
 
 X - Melhorar a ordem de criação das tabelas nas migrations. Sempre que um usuário for criado é necessário atribuir um id do setor que ele pertence, portanto caso não haja nenhum setor cadastrado não será possível criar um novo usuário.
+
+X - Adicionar dois campos, editar e excluir em cada registro na view de setores
+
+X - Adicionar um modal ou popover de confirmação antes de mudanças críticas

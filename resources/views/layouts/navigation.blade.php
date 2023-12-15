@@ -17,7 +17,7 @@
                         {{ __('Meus horários') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard-sectors')" :active="request()->routeIs('dashboard-sectors') || request()->routeIs('dashboard-sectors-create')">
+                    <x-nav-link :href="route('dashboard-sectors')" :active="request()->routeIs('dashboard-sectors') || request()->routeIs('dashboard-sectors-create') || request()->routeIs('dashboard-sectors-show')">
                         {{ __('Setores') }}
                     </x-nav-link>
 

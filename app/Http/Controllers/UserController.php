@@ -35,8 +35,6 @@ class UserController extends Controller{
         //  Substitui o item 'password' do array "$data" pelo novo hash
         $data['password'] = $hash;
 
-        // dd($data);
-
         //  Cria uma instância de um objeto e salva no bando de dados
         User::create($data);
 

@@ -37,7 +37,7 @@
 
 </div>
 
-@if (!isset($sectors))
+@if (!isset($sectors) && !isset($users))
     
     <a class="row mB-16 pT-8 pB-8 border" href="/dashboard/sectors">
 
@@ -56,8 +56,21 @@
 @else
     
     @foreach ($sectors as $sector)
+
+    @php
         
-        <a class="row pT-8 pB-8 border" href="/dashboard/sectors">
+        $qtd = 0;
+
+        foreach ($users as $user) {
+            
+            if($user->sec_id == $sector->id){
+                $qtd++;
+            }
+        }
+
+    @endphp
+
+        <a class="row pT-8 pB-8 border" href="/dashboard/sectors/{{ $sector->id }}">
 
             <div class="d-flex align-items-center col-md-3 pL-8">
                 <span>{{ $sector->name }}</span>
@@ -68,7 +81,7 @@
             </div>
 
             <div class="d-flex align-items-center col-md-3">
-                <span>{{ $sector->description }}</span>
+                <span>{{ $qtd }}</span>
             </div>
             
         </a>

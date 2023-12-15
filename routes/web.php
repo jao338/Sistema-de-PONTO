@@ -32,7 +32,8 @@ Route::post('/dashboard/sectors/create', [SectorController::class, 'store'])->mi
 
 Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard-users-create');
 Route::post('/dashboard/users/create', [UserController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard-users-create');
-
+Route::get('/dashboard/sectors/{id}', [SectorController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard-sectors-show');
+Route::post('/dashboard/sectors/edit', [SectorController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard-sectors-edit');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
