@@ -49,4 +49,11 @@ class UserController extends Controller{
         return view("dashboard", ['user' => $user]);
     }
 
+    public function destroy($id){
+
+        User::findOrFail($id)->delete();
+
+        return redirect("dashboard")->with('msg', "Excluído com sucesso");
+    }
+
 }

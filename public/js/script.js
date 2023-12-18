@@ -1,7 +1,3 @@
-$("#optionsSectors").mouseover(() => {
-    $("#dep").addClass('d-none')
-})
-
 let clock = $("#clock");
     
 //  Seleciona e troca o texto do elemento de "#clock" pelo horário atual

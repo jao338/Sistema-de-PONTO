@@ -34,6 +34,7 @@ Route::get('/dashboard/users/create', [UserController::class, 'create'])->middle
 Route::post('/dashboard/users/create', [UserController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard-users-create');
 Route::get('/dashboard/users/{id}', [UserController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard-users-show');
 Route::get('/dashboard/users/edit/{id}', [UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard-users-edit');
+Route::delete('/dashboard/users/destroy/{id}', [UserController::class, 'destroy'])->middleware(['auth', 'verified'])->name('dashboard-users-destroy');
 
 Route::get('/dashboard/sectors/{id}', [SectorController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard-sectors-show');
 Route::get('/dashboard/sectors/edit/{id}', [SectorController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard-sectors-edit');

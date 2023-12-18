@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-            <div class="flex mB-32">
+            <div class="flex mB-16">
                 
                 <div class="w-50 mR-16">
                     <x-input-label for="password" :value="__('Password')" class="pL-8" />    
@@ -56,14 +56,12 @@
 
             </div>
 
+            <x-input-label for="sec_id" :value="__('Departamentos')" class="pL-8 pB-8"/>
             <select class="d-flex form-select mB-32" id="sec_id" name="sec_id">
 
                 @if (!isset($sectors))
-                    <option selected id="dep">Departamentos</option>
                     <option value="1">One</option>  
                 @else
-
-                <option selected id="dep">Departamentos</option>
 
                     @foreach ($sectors as $sector)
                         <option value="{{ $sector->id }}">{{ $sector->name }}</option>         
