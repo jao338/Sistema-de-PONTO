@@ -14,11 +14,11 @@
 
     @if ($currentRoute == "dashboard")
         
-        @include('sections/hours')
+        @include('hours/hours')
 
     @elseif($currentRoute == "dashboard-users")
         
-        @include('sections/users')
+        @include('users/users')
 
     @elseif($currentRoute == "dashboard-sectors")
 
@@ -30,11 +30,19 @@
 
     @elseif($currentRoute == "dashboard-users-create")
 
-        @include('sections/createUser')
+        @include('users/createUser')
 
     @elseif($currentRoute == "dashboard-sectors-show")
 
         @include('sections/showSector')
+
+    @elseif($currentRoute == "dashboard-sectors-edit")
+        
+        @include('sections/editSector')
+
+    @elseif($currentRoute == "dashboard-users-show")
+
+        @include('users/showUser')
 
     @endif
     

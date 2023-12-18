@@ -45,9 +45,32 @@ class SectorController extends Controller{
         return view("dashboard", ['sector' => $sector]);
     }
 
-    public function edit(Request $request){
+    public function edit(Request $request, $id){
 
-        return redirect("dashboard")->with("msg", "Setor atualizado com sucesso!");
+        $sector = Sector::findOrFail($id);
+
+        return view("dashboard", ['sector' => $sector]);
+    }
+
+    public function update(Request $request, $id){
+
+        $data = $request->all();
+
+        if(!$sector = Sector::find($id)){
+            return redirect()->back();  //  Caso não encontre o registro, redireciona de volta para a página anterior
+        }
+
+        $sector->update($data);
+
+        return redirect("dashboard")->with('msg', "Upload feito com sucesso");
+
+    }
+
+    public function destroy($id){
+
+        Sector::findOrFail($id)->delete();
+
+        return redirect("dashboard")->with('msg', "Excluído com sucesso");
     }
 
 }

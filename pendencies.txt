@@ -1,21 +1,13 @@
 X - Ao registrar um horário verificar se existe algum registro. Após isso, verificar se a data atual já está cadastrada no banco e se a data atual não é feriado ou final de semana. Em seguida verificar qual coluna ainda não foi preenchida.
 
-X - Cadastrar setores e usuários, sendo que cada usuário DEVE PERTENCER A APENAS UM SETOR e UM SETOR PODE POSSUIR VÁRIOS USUÁRIOS
-
-X - Melhorar a navegação entre páginas, alterando o estado da aba ativa na view de dashboard
-
-X - A tabela de setores deve possuir as seguintes colunas: Id, nome, descrição e horário de entrada/saída.
-
-X - A tabela de usuários deve possuir as seguintes colunas: Id, nome, senha, email e sector_id
-
-X - Os usuários devem possuir diferentes níveis de acesso, sendo que APENAS o administrador do sistema poderá cadastrar novos setores ou usuários. Todos os usuários do sistema que pertencerem ao departamento de T.I possuem nível de administrador.
-
-X - Ainda falta realizar um innerJoin para exibir a quantidade de usuários na aba de setores
+X - Apenas os funcionários do departamento de T.I podem criar novos setores e usuários
 
 X - Na tela de usuários é necessário fazer um innerJoin para exibir o nome do departamento correspondente, bem como horário de entrada e saída
 
-X - Melhorar a ordem de criação das tabelas nas migrations. Sempre que um usuário for criado é necessário atribuir um id do setor que ele pertence, portanto caso não haja nenhum setor cadastrado não será possível criar um novo usuário.
-
-X - Adicionar dois campos, editar e excluir em cada registro na view de setores
+X - Adicionar dois campos, editar e excluir em cada registro na view de setores e usuários
 
 X - Adicionar um modal ou popover de confirmação antes de mudanças críticas
+
+X - Implementar a busca por setores e usuários
+
+X - Adicionar a quebra de texto a coluna de descrição de departamento

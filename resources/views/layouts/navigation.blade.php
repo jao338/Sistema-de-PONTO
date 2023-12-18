@@ -17,11 +17,11 @@
                         {{ __('Meus horários') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard-sectors')" :active="request()->routeIs('dashboard-sectors') || request()->routeIs('dashboard-sectors-create') || request()->routeIs('dashboard-sectors-show')">
+                    <x-nav-link :href="route('dashboard-sectors')" :active="request()->routeIs('dashboard-sectors') || request()->routeIs('dashboard-sectors-create') || request()->routeIs('dashboard-sectors-show') || request()->routeIs('dashboard-sectors-edit')">
                         {{ __('Setores') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard-users')" :active="request()->routeIs('dashboard-users')  || request()->routeIs('dashboard-users-create')">
+                    <x-nav-link :href="route('dashboard-users')" :active="request()->routeIs('dashboard-users')  || request()->routeIs('dashboard-users-create') || request()->routeIs('dashboard-users-show')">
                         {{ __('Usuários') }}
                     </x-nav-link>
 

@@ -17,6 +17,10 @@
     width: 45vw !important;
 }
 
+.p-8{
+    padding: 8px !important;
+}
+
 .p-32{
     padding: 32px !important;
 }
@@ -91,5 +95,11 @@ th{
 
 .w-10{
     width: 10% !important;
+}
+
+.text-overflow{
+    overflow: hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
 }
 

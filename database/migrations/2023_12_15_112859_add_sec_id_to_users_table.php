@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('sec_id')->references('id')->on('sectors');   //  Id do usuário como chave estrangeira na tabela events
+            $table->foreign('sec_id')->references('id')->on('sectors')->onDelete('cascade');   //  Id do usuário como chave estrangeira na tabela events
         });
     }
 
@@ -25,10 +25,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('sec_id')
-            ->constrained()
-            ->onDelete('cascade');
-        });
+        
     }
 };

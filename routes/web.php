@@ -32,11 +32,16 @@ Route::post('/dashboard/sectors/create', [SectorController::class, 'store'])->mi
 
 Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard-users-create');
 Route::post('/dashboard/users/create', [UserController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard-users-create');
+Route::get('/dashboard/users/{id}', [UserController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard-users-show');
+Route::get('/dashboard/users/edit/{id}', [UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard-users-edit');
+
 Route::get('/dashboard/sectors/{id}', [SectorController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard-sectors-show');
-Route::post('/dashboard/sectors/edit', [SectorController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard-sectors-edit');
+Route::get('/dashboard/sectors/edit/{id}', [SectorController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard-sectors-edit');
+Route::put('/dashboard/sectors/{id}', [SectorController::class, 'update'])->middleware(['auth', 'verified'])->name('dashboard-sectors-update');
+Route::delete('/dashboard/sectors/destroy/{id}', [SectorController::class, 'destroy'])->middleware(['auth', 'verified'])->name('dashboard-sectors-destroy');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/users/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

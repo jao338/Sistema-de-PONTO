@@ -2,8 +2,9 @@
     <h1>Algo deu errado</h1>
 @else
 
-<form method="POST" action="/dashboard/sectors/edit" class="flex flex-col">
+<form method="POST" action="/dashboard/sectors/{{ $sector->id }}" class="flex flex-col">
     @csrf
+    @method("PUT")
 
     <div class="row flex justify-center p-32" style="height: 70vh">
 
@@ -47,7 +48,7 @@
             </div>
 
             <button type="submit" class="btn w-100 mT-16 flex justify-center" style="background-color: rgb(31 41 55)">
-                <span class="text-light">Cadastrar</span>
+                <span class="text-light">Atualizar</span>
             </button>
 
         </div>

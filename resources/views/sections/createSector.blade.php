@@ -9,7 +9,7 @@
 
                 <div class="d-flex align-items-center">
                     <x-application-logo class="block h-9 w-auto fill-current text-gray-800 mR-8" />
-                    <span>Cadastro de Setores</span>
+                    <span>Cadastro de Departamentos</span>
                 </div>
 
                 <a href="{{ url()->previous() }}" class="btn btn-outline-secondary d-flex align-items-center">
