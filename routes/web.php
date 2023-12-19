@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [HourController::class, 'index'])->middleware('auth')->name("dashboard");
-Route::post('/dashboard', [HourController::class, 'register'])->middleware('auth');
+Route::post('/dashboard/register', [HourController::class, 'register'])->middleware('auth')->name("dashboard-register");
 
 Route::get('/dashboard/users', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard-users');
 Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard-users-create');

@@ -13,7 +13,7 @@
         
         </form>
         
-        <form action="" method="GET" class="mL-16">
+        <form action="/dashboard/register" method="POST" class="mL-16">
             @csrf
         
             <button type="submit" class="btn btn-outline-secondary" name="btnCreateHour">Registrar</button>
@@ -39,8 +39,8 @@
             
                 @foreach ($hours as $hour)
                     <tr class="border-bottom">
-                        <th scope="row" class="border-end pL-16">{{ $hour->entrance }}</th>
-                        <td class="border-end pL-16">{{ $hour->entrance }}</td>
+                        <th scope="row" class="border-end pL-16">{{ date('d/m/Y', strtotime($hour->entrance)) }}</th>
+                        <td class="border-end pL-16">{{ date('H:i:s', strtotime($hour->entrance)) }}</td>
                         <td class="border-end pL-16">{{ $hour->entrance_lunch }}</td>
                         <td class="border-end pL-16">{{ $hour->exit_lunch }}</td>
                         <td>{{ $hour->exit }}</td>
@@ -60,6 +60,14 @@
         </tbody>
 
     </table>
+
+{{-- @if (isset($search))
+    @foreach ($search as $item)
+        <p>{{ $item->id }}</p>
+    @endforeach
+@else
+    
+@endif --}}
 
     
 

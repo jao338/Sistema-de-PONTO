@@ -20,6 +20,10 @@
         
         @include('users/users')
 
+    @elseif($currentRoute == "dashboard-register")
+        
+        @include('hours/hours')
+
     @elseif($currentRoute == "dashboard-sectors")
 
         @include('sections/sectors')
