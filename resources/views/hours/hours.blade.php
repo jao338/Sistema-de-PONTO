@@ -60,9 +60,9 @@
         </tbody>
 
     </table>
-
-{{-- @if (isset($search))
-    @foreach ($search as $item)
+{{-- 
+@if (isset($hours))
+    @foreach ($hours as $item)
         <p>{{ $item->id }}</p>
     @endforeach
 @else

@@ -60,16 +60,18 @@ class HourController extends Controller{
         
         $currentTime = Carbon::now()->format('Y-m-d H:i:s');
 
-        $search = Hour::where('user_id', '=', "$user->id")->get();
+        // $search = Hour::where('user_id', '=', "$user->id")->get();
+
+        $hours = Hour::all();
 
         $hour = new Hour();
 
         $hour->user_id = $user->id;
         $hour->entrance = $currentTime;
 
-        // $hour->save();
+        $hour->save();
 
-        return view("dashboard", ['search' => $search])->with("msg", "Registrado com sucesso");
+        return view("dashboard", ["hours" => $hours])->with("msg", "Registrado com sucesso");
 
     }
 

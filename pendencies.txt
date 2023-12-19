@@ -9,3 +9,5 @@ X - Adicionar um modal ou popover de confirmação antes de mudanças críticas
 X - Implementar a busca por setores e usuários
 
 X - Adicionar a quebra de texto a coluna de descrição de departamento
+
+X - Ao registrar um horário no banco, o return não redireciona corretamente para a view de dashboard
