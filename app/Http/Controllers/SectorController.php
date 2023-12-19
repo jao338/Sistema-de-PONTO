@@ -73,4 +73,13 @@ class SectorController extends Controller{
         return redirect("dashboard")->with('msg', "Excluído com sucesso");
     }
 
+    public function search(Request $request){
+        
+        $sectors = Sector::where('name', 'LIKE', "%$request->sectorsSearch%")
+            ->orWhere('description', 'LIKE', "%$request->sectorsSearch%")
+            ->get();
+
+        return view("dashboard", ['sectors' => $sectors]);
+    }
+
 }

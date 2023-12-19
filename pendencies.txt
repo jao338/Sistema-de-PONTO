@@ -4,8 +4,6 @@ X - Apenas os funcionários do departamento de T.I podem criar novos setores e u
 
 X - Na tela de usuários é necessário fazer um innerJoin para exibir o nome do departamento correspondente, bem como horário de entrada e saída
 
-X - Adicionar dois campos, editar e excluir em cada registro na view de setores e usuários
-
 X - Adicionar um modal ou popover de confirmação antes de mudanças críticas
 
 X - Implementar a busca por setores e usuários

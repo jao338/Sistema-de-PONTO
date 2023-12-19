@@ -25,17 +25,17 @@ Route::get('/dashboard', [HourController::class, 'index'])->middleware('auth')->
 Route::post('/dashboard', [HourController::class, 'register'])->middleware('auth');
 
 Route::get('/dashboard/users', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard-users');
-
-Route::get('/dashboard/sectors', [SectorController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard-sectors');
-Route::get('/dashboard/sectors/create', [SectorController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard-sectors-create');
-Route::post('/dashboard/sectors/create', [SectorController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard-sectors-create');
-
 Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard-users-create');
 Route::post('/dashboard/users/create', [UserController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard-users-create');
+Route::get('/dashboard/users/search', [UserController::class, 'search'])->middleware(['auth', 'verified'])->name('dashboard-users-search');
 Route::get('/dashboard/users/{id}', [UserController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard-users-show');
 Route::get('/dashboard/users/edit/{id}', [UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard-users-edit');
 Route::delete('/dashboard/users/destroy/{id}', [UserController::class, 'destroy'])->middleware(['auth', 'verified'])->name('dashboard-users-destroy');
 
+Route::get('/dashboard/sectors', [SectorController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard-sectors');
+Route::get('/dashboard/sectors/search', [SectorController::class, 'search'])->middleware(['auth', 'verified'])->name('dashboard-sectors-search');
+Route::get('/dashboard/sectors/create', [SectorController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard-sectors-create');
+Route::post('/dashboard/sectors/create', [SectorController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard-sectors-create');
 Route::get('/dashboard/sectors/{id}', [SectorController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard-sectors-show');
 Route::get('/dashboard/sectors/edit/{id}', [SectorController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard-sectors-edit');
 Route::put('/dashboard/sectors/{id}', [SectorController::class, 'update'])->middleware(['auth', 'verified'])->name('dashboard-sectors-update');

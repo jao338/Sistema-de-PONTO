@@ -44,6 +44,14 @@
 
         @include('users/showUser')
 
+    @elseif($currentRoute == "dashboard-sectors-search")
+
+        @include('sections/sectorSearch')
+
+    @elseif($currentRoute == "dashboard-users-search")
+
+        @include('users/userSearch')
+
     @endif
     
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

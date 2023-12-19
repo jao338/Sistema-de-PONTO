@@ -1,27 +1,28 @@
-{{-- Listagem dos horários --}}
-
 @if (session('msg'))
     <p class="mB-16">{{ session('msg') }}</p>
 @endif
 
+    <div class="d-flex align-items-center mB-16">
+        <form action="#" method="GET" class="w-100">
+            <div class="input-group">
+                
+                <input type="text" class="form-control" placeholder="Buscar" name="inputSearchHours">
+                <button class="btn btn-outline-secondary" type="submit" name="btnSearchHours">Buscar</button>
+        
+            </div>
+        
+        </form>
+        
+        <form action="" method="GET" class="mL-16">
+            @csrf
+        
+            <button type="submit" class="btn btn-outline-secondary" name="btnCreateHour">Registrar</button>
+        
+        </form>
+    </div>
+
     <table class="table table-borderless shadow">
         <thead>
-            <tr>
-                <th class="d-flex align-items-center pL-16">
-                    <span class="fw-bolder">Registrar entrada</span>
-                </th>
-
-                <th></th>
-                <th></th>
-                <th></th>
-
-                <form action="/dashboard" method="POST">
-                    @csrf
-                    <th class="d-flex justify-content-end pR-16">
-                        <button class="btn btn-outline-secondary">Registrar</button>
-                    </th>
-                </form>
-            </tr>            
 
             <tr class="border-top border-bottom">
                 <th scope="col" class="border-end pL-16">Dia</th>

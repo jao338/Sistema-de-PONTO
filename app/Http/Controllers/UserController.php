@@ -14,7 +14,6 @@ class UserController extends Controller{
         $users = User::all();
 
         return view("dashboard", ['users' => $users]);
-
     }
 
     public function create(){
@@ -54,6 +53,14 @@ class UserController extends Controller{
         User::findOrFail($id)->delete();
 
         return redirect("dashboard")->with('msg', "Excluído com sucesso");
+    }
+
+    public function search(Request $request){
+
+        $users = User::where('name', 'LIKE', "%$request->searchUsers%")
+            ->get();
+
+        return view("dashboard", ['users' => $users]);
     }
 
 }
