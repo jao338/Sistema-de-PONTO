@@ -66,7 +66,7 @@ class SectorController extends Controller{
 
         $sector->update($data);
 
-        return redirect("dashboard")->with('msg', "Upload feito com sucesso");
+        return redirect("dashboard")->with('msg', "Atualizado com sucesso");
 
     }
 

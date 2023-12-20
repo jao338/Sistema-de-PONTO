@@ -21,7 +21,7 @@
         </form>
     </div>
 
-    <table class="table table-borderless shadow">
+    <table class="table table-borderless table-responsive shadow">
         <thead>
 
             <tr class="border-top border-bottom">
@@ -60,14 +60,5 @@
         </tbody>
 
     </table>
-{{-- 
-@if (isset($hours))
-    @foreach ($hours as $item)
-        <p>{{ $item->id }}</p>
-    @endforeach
-@else
-    
-@endif --}}
 
-    
 

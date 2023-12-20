@@ -1,13 +1,13 @@
 X - Ao registrar um horário verificar se existe algum registro. Após isso, verificar se a data atual já está cadastrada no banco e se a data atual não é feriado ou final de semana. Em seguida verificar qual coluna ainda não foi preenchida.
 
-X - Na tela de usuários é necessário exibir qual departamento correspondente de cada usuário
-
 X - Adicionar um modal ou popover de confirmação antes de mudanças críticas
 
-X - Implementar a busca por setores e usuários
-
-X - Adicionar a quebra de texto a coluna de descrição de departamento
-
-X - Criar a tela de edição de perfil de usuário
+X - Implementar a busca por horários e dias na tela de "Meus horários"
 
 X - Comentar trechos do código, principalmente nos controllers
+
+X - Melhorar o responsivo
+
+X - Implementar a exportação da tabela de horários para excel, usando "https://docs.laravel-excel.com/3.1/getting-started/contributing.html"
+
+X - Criar um innerJoin na view de busca de usuários

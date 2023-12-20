@@ -17,11 +17,11 @@
                         {{ __('Meus horários') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard-sectors')" :active="request()->routeIs('dashboard-sectors') || request()->routeIs('dashboard-sectors-create') || request()->routeIs('dashboard-sectors-show') || request()->routeIs('dashboard-sectors-edit') || request()->routeIs('profile.edit') || request()->routeIs('dashboard-sectors-search')">
+                    <x-nav-link :href="route('dashboard-sectors')" :active="request()->routeIs('dashboard-sectors') || request()->routeIs('dashboard-sectors-create') || request()->routeIs('dashboard-sectors-show') || request()->routeIs('dashboard-sectors-edit') || request()->routeIs('dashboard-sectors-search')">
                         {{ __('Setores') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard-users')" :active="request()->routeIs('dashboard-users')  || request()->routeIs('dashboard-users-create') || request()->routeIs('dashboard-users-show') || request()->routeIs('dashboard-users-search') || request()->routeIs('dashboard-users-edit')">
+                    <x-nav-link :href="route('dashboard-users')" :active="request()->routeIs('dashboard-users')  || request()->routeIs('dashboard-users-create') || request()->routeIs('dashboard-users-show') || request()->routeIs('dashboard-users-search') || request()->routeIs('dashboard-users-edit') || request()->routeIs('profile.edit')">
                         {{ __('Usuários') }}
                     </x-nav-link>
 

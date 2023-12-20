@@ -68,6 +68,13 @@ class UserController extends Controller{
         $users = User::where('name', 'LIKE', "%$request->searchUsers%")
             ->get();
 
+        // $users = User::join('sectors', 'sec_id', '=', 'sectors.id')
+        // ->select('users.*','sectors.name as sector_name')
+        // ->where("users.name", $request->searchUsers)
+        // ->get();
+
+        // dd($users);
+
         return view("dashboard", ['users' => $users]);
     }
 
