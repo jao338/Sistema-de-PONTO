@@ -1,80 +1,54 @@
-<div class="d-flex align-items-center mB-16">
-    <form action="/dashboard/sectors/search" method="GET" class="w-100">
-        @csrf
-        <div class="input-group">
-            
-            <input type="text" class="form-control" placeholder="Buscar" name="sectorsSearch">
-            <button class="btn btn-outline-secondary" type="submit" name="btnSearchSectors">Buscar</button>
+@if (!isset($sectors))
     
-        </div>
+    <h1>Você não pode visualizar essa página.</h1>
     
-    </form>
-    
-    <form action="/dashboard/sectors/create" method="GET" class="mL-16">
-
-        @csrf
-        <button type="submit" class="btn btn-outline-secondary" name="btnCreateSectors">Criar</button>
-    
-    </form>
-</div>
-
-<div class="row border-top border-start border-end pT-8 pB-8">
-
-    <div class="d-flex align-items-center col pL-8">
-        <span class="fw-bold">Nome</span>
-    </div>
-
-    <div class="d-flex align-items-center col">
-        <span class="fw-bold">Descrição</span>
-    </div>
-
-    <div class="d-flex align-items-center col">
-        <span class="fw-bold">Ver</span>
-    </div>
-
-    <div class="d-flex align-items-center col">
-        <span class="fw-bold">Editar</span>
-    </div>
-
-    <div class="d-flex align-items-center col">
-        <span class="fw-bold">Excluir</span>
-    </div>
-
- </div>
-
- 
-@if (!isset($sectors) && !isset($users))
-    
-    <a class="row mB-16 pT-8 pB-8 border" href="/dashboard/sectors">
-
-        <div class="d-flex align-items-center col-md-3 pL-8">
-            ADM
-        </div>
-
-        <div class="d-flex align-items-center col-md-6">
-            Alguma coisa
-        </div>
-
-        <div class="d-flex align-items-center col-md-3">
-            15
-        </div>
-    </a>
 @else
+
+    <div class="d-flex align-items-center mB-16">
+        <form action="/dashboard/sectors/search" method="GET" class="w-100">
+            @csrf
+            <div class="input-group">
+                
+                <input type="text" class="form-control" placeholder="Buscar" name="sectorsSearch">
+                <button class="btn btn-outline-secondary" type="submit" name="btnSearchSectors">Buscar</button>
+        
+            </div>
+        
+        </form>
+        
+        <form action="/dashboard/sectors/create" method="GET" class="mL-16">
+
+            @csrf
+            <button type="submit" class="btn btn-outline-secondary" name="btnCreateSectors">Criar</button>
+        
+        </form>
+    </div>
+
+    <div class="row border-top border-start border-end pT-8 pB-8">
+
+        <div class="d-flex align-items-center col pL-8">
+            <span class="fw-bold">Nome</span>
+        </div>
+
+        <div class="d-flex align-items-center col">
+            <span class="fw-bold">Descrição</span>
+        </div>
+
+        <div class="d-flex align-items-center col">
+            <span class="fw-bold">Ver</span>
+        </div>
+
+        <div class="d-flex align-items-center col">
+            <span class="fw-bold">Editar</span>
+        </div>
+
+        <div class="d-flex align-items-center col">
+            <span class="fw-bold">Excluir</span>
+        </div>
+
+</div>
     
     @foreach ($sectors as $sector)
-
-    @php
-        
-        $qtd = 0;
-
-        foreach ($users as $user) {
-            
-            if($user->sec_id == $sector->id){
-                $qtd++;
-            }
-        }
-
-    @endphp
 
         <div class="row pT-8 pB-8 border">
 
@@ -85,11 +59,6 @@
             <div class="d-flex align-items-center col">
                 {{ $sector->description }}
             </div>
-
-            {{-- Retorna o número de funcionários de cada departamento --}}
-            {{-- <div class="d-flex align-items-center col">
-                <span>{{ $qtd }}</span>
-            </div> --}}
 
             <div class="d-flex align-items-center col">
                 <a href="/dashboard/sectors/{{ $sector->id }}" class="btn btn-outline-secondary">

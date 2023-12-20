@@ -21,7 +21,7 @@
                         {{ __('Setores') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard-users')" :active="request()->routeIs('dashboard-users')  || request()->routeIs('dashboard-users-create') || request()->routeIs('dashboard-users-show') || request()->routeIs('dashboard-users-search')">
+                    <x-nav-link :href="route('dashboard-users')" :active="request()->routeIs('dashboard-users')  || request()->routeIs('dashboard-users-create') || request()->routeIs('dashboard-users-show') || request()->routeIs('dashboard-users-search') || request()->routeIs('dashboard-users-edit')">
                         {{ __('Usuários') }}
                     </x-nav-link>
 
@@ -77,9 +77,19 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('Meus horários') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('dashboard-sectors')" :active="request()->routeIs('dashboard-sectors') || request()->routeIs('dashboard-sectors-create') || request()->routeIs('dashboard-sectors-show') || request()->routeIs('dashboard-sectors-edit') || request()->routeIs('profile.edit') || request()->routeIs('dashboard-sectors-search')">
+                {{ __('Setores') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('dashboard-users')" :active="request()->routeIs('dashboard-users')  || request()->routeIs('dashboard-users-create') || request()->routeIs('dashboard-users-show') || request()->routeIs('dashboard-users-search') || request()->routeIs('dashboard-users-edit')">
+                {{ __('Usuários') }}
+            </x-responsive-nav-link>
+            
         </div>
 
         <!-- Responsive Settings Options -->

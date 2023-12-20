@@ -21,7 +21,7 @@ return new class extends Migration
             $table->datetime("entrance_lunch");
             $table->datetime("exit");
             $table->datetime("exit_lunch");
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');;
         });
     }
 

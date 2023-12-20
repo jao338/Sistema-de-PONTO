@@ -12,9 +12,13 @@ class SectorController extends Controller{
 
         $sectors = Sector::all();
 
-        $users = User::all();
+        $user = auth()->user();
 
-        return view("dashboard", ['sectors' => $sectors, 'users' => $users]);
+        if($user->sec_id != "1"){
+            return view("dashboard");
+        }
+
+        return view("dashboard", ['sectors' => $sectors]);
 
     }
 

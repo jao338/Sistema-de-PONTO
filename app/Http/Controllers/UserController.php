@@ -11,7 +11,15 @@ class UserController extends Controller{
     
     public function index(){
 
-        $users = User::all();
+        $user = auth()->user();
+
+        if($user->sec_id != "1"){
+            return view("dashboard");
+        }
+
+        $users = User::join('sectors', 'sec_id', '=', 'sectors.id')
+        ->select('users.*', 'sectors.name as sector_name')
+        ->get();
 
         return view("dashboard", ['users' => $users]);
     }
@@ -61,6 +69,34 @@ class UserController extends Controller{
             ->get();
 
         return view("dashboard", ['users' => $users]);
+    }
+
+    public function edit($id){
+
+        $user = User::findOrFail($id);
+        
+        $sectors = Sector::all();
+
+        return view("dashboard", ['user' => $user, 'sectors' => $sectors]);
+
+    }
+
+    public function update(Request $request, $id){
+
+        $data = $request->all();
+
+        $hash = Hash::make($data['password']);
+
+        $data['password'] = $hash;
+
+        if(!$user = User::find($id)){
+            return redirect()->back();  //  Caso não encontre o registro, redireciona de volta para a página anterior
+        }
+
+        $user->update($data);
+
+        return redirect("dashboard")->with('msg', "Atualizado com sucesso");
+
     }
 
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -11,11 +12,13 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreign('sec_id')->references('id')->on('sectors')->onDelete('cascade');;
-        });
+    public function up(){
+        DB::table('sectors')->insert([
+            ['name' => 'T.I', 
+            'description' => "Faz de tudo um pouco",
+            'entrance' => "08:00:00",
+            'exit' => "18:00:00"],
+        ]);
     }
 
     /**
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-
+        DB::table('sectors')->whereIn('name', ['T.I'])->delete();
     }
 };

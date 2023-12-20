@@ -20,7 +20,7 @@
     
     <div class="row">
         <div class="col-md-6">
-            <h2 class="fs-2 pB-8">Departamento de {{ $sector->name }}</h2>
+            <h2 class="fs-2 pB-8">Departamento de <span class="fw-bold">{{ $sector->name }}</span></h2>
 
             <p> {{ $sector->description }}</p>
         </div>

@@ -27,6 +27,8 @@ Route::post('/dashboard/register', [HourController::class, 'register'])->middlew
 Route::get('/dashboard/users', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard-users');
 Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard-users-create');
 Route::post('/dashboard/users/create', [UserController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard-users-create');
+Route::post('/dashboard/users/edit/{id}', [UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard-users-edit');
+Route::put('/dashboard/users/{id}', [UserController::class, 'update'])->middleware(['auth', 'verified'])->name('dashboard-users-update');
 Route::get('/dashboard/users/search', [UserController::class, 'search'])->middleware(['auth', 'verified'])->name('dashboard-users-search');
 Route::get('/dashboard/users/{id}', [UserController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard-users-show');
 Route::get('/dashboard/users/edit/{id}', [UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard-users-edit');
