@@ -62,7 +62,7 @@ class HourController extends Controller{
 
         // $search = Hour::where('user_id', '=', "$user->id")->get();
 
-        $hours = Hour::all();
+        $hours = Hour::all()->where('user_id', $user->id);
 
         $hour = new Hour();
 
@@ -71,7 +71,7 @@ class HourController extends Controller{
 
         $hour->save();
 
-        return view("dashboard", ["hours" => $hours])->with("msg", "Registrado com sucesso");
+        return redirect("dashboard", 302)->with("msg", "Registrado com sucesso");
 
     }
 
