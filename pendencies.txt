@@ -1,6 +1,4 @@
-X - Ao registrar um horário verificar se a data atual já está cadastrada no banco, caso não esteja é necessário realizar um insert e caso esteja é necessário fazer um update
-
-X - Ao registrar um horário verificar se a 
+X - Ao criar um registro verificar se a data atual é um feriado, caso seja o cadastro não podera ser feito
 
 X - Adicionar um modal ou popover de confirmação antes de mudanças críticas
 
@@ -11,5 +9,3 @@ X - Comentar trechos do código, principalmente nos controllers
 X - Melhorar o responsivo
 
 X - Implementar a exportação da tabela de horários para excel, usando "https://docs.laravel-excel.com/3.1/getting-started/contributing.html"
-
-X - Criar um innerJoin na view de busca de usuários
