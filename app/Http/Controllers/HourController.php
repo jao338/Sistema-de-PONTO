@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\UsersExport;
 use App\Models\Hour;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class HourController extends Controller{
     
@@ -89,6 +91,16 @@ class HourController extends Controller{
 
         }
         
+
+    }
+
+    public function export(){
+
+        $user = auth()->user();
+
+        $data = Hour::where('user_id', '=', "$user->id")->get();
+
+        return Excel::download(new UsersExport, 'hours.xlsx');
 
     }
 

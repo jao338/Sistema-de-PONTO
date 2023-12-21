@@ -30,13 +30,12 @@
                 <th scope="col" class="border-end pL-16">Hora de entrada</th>
                 <th scope="col" class="border-end pL-16">Entrada Almoço</th>
                 <th scope="col" class="border-end pL-16">Saída Almoço</th>
-                <th scope="col">Hora de sgit aaída</th>
+                <th scope="col">Hora de saída</th>
             </tr>
             
         </thead>
         <tbody>
-            
-            
+        
                 @foreach ($hours as $hour)
                     <tr class="border-bottom">
                         <th scope="row" class="border-end pL-16">{{ date('d/m/Y', strtotime($hour->entrance)) }}</th>
@@ -48,6 +47,7 @@
                             @else
                                 {{ date('H:i:s', strtotime($hour->entrance_lunch)) }}
                             @endif
+                            
 
                         </td>
                         <td class="border-end pL-16">

@@ -9,6 +9,11 @@
         </p>
     </header>
 
-    <a href="#" class="btn btn-success">Exportar</a>
+    {{-- <a href="/users/profile/export" class="btn btn-sucess">Exportar</a> --}}
+
+    <form action="/users/profile/export" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-outline-success">Exportar</button>
+    </form>
 
 </section>
