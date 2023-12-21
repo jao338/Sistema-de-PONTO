@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Sector;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller{
@@ -65,15 +66,10 @@ class UserController extends Controller{
 
     public function search(Request $request){
 
-        $users = User::where('name', 'LIKE', "%$request->searchUsers%")
-            ->get();
-
-        // $users = User::join('sectors', 'sec_id', '=', 'sectors.id')
-        // ->select('users.*','sectors.name as sector_name')
-        // ->where("users.name", $request->searchUsers)
-        // ->get();
-
-        // dd($users);
+        $users = User::join('sectors', 'sec_id', '=', 'sectors.id')
+        ->select('users.*','sectors.name as sector_name')
+        ->where('users.name', 'LIKE', '%' . $request->searchUsers . '%')
+        ->get();
 
         return view("dashboard", ['users' => $users]);
     }

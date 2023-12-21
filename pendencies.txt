@@ -1,4 +1,6 @@
-X - Ao registrar um horário verificar se existe algum registro. Após isso, verificar se a data atual já está cadastrada no banco e se a data atual não é feriado ou final de semana. Em seguida verificar qual coluna ainda não foi preenchida.
+X - Ao registrar um horário verificar se a data atual já está cadastrada no banco, caso não esteja é necessário realizar um insert e caso esteja é necessário fazer um update
+
+X - Ao registrar um horário verificar se a 
 
 X - Adicionar um modal ou popover de confirmação antes de mudanças críticas
 

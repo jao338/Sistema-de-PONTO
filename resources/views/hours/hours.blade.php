@@ -20,6 +20,7 @@
         
         </form>
     </div>
+    @if (isset($hours) && count($hours) > 0)
 
     <table class="table table-borderless table-responsive shadow">
         <thead>
@@ -29,32 +30,49 @@
                 <th scope="col" class="border-end pL-16">Hora de entrada</th>
                 <th scope="col" class="border-end pL-16">Entrada Almoço</th>
                 <th scope="col" class="border-end pL-16">Saída Almoço</th>
-                <th scope="col">Hora de saída</th>
+                <th scope="col">Hora de sgit aaída</th>
             </tr>
             
         </thead>
         <tbody>
             
-            @if (isset($hours) && count($hours) > 0)
             
                 @foreach ($hours as $hour)
                     <tr class="border-bottom">
                         <th scope="row" class="border-end pL-16">{{ date('d/m/Y', strtotime($hour->entrance)) }}</th>
                         <td class="border-end pL-16">{{ date('H:i:s', strtotime($hour->entrance)) }}</td>
-                        <td class="border-end pL-16">{{ $hour->entrance_lunch }}</td>
-                        <td class="border-end pL-16">{{ $hour->exit_lunch }}</td>
-                        <td>{{ $hour->exit }}</td>
+                        <td class="border-end pL-16">
+
+                            @if ($hour->entrance_lunch == "")
+                                00:00:00
+                            @else
+                                {{ date('H:i:s', strtotime($hour->entrance_lunch)) }}
+                            @endif
+
+                        </td>
+                        <td class="border-end pL-16">
+
+                            @if ($hour->exit_lunch == "")
+                                00:00:00
+                            @else
+                                {{ date('H:i:s', strtotime($hour->exit_lunch)) }}
+                            @endif
+
+                        </td>
+                        <td>
+
+                            @if ($hour->exit == "")
+                                00:00:00
+                            @else
+                                {{ date('H:i:s', strtotime($hour->exit)) }}
+                            @endif
+
+                        </td>
                     </tr>
                 @endforeach
             
             @else
-                <tr class="border-bottom">
-                    <th scope="row" class="border-end pL-16">XX</th>
-                    <td class="border-end pL-16">XX:XX:XX</td>
-                    <td class="border-end pL-16">XX:XX:XX</td>
-                    <td class="border-end pL-16">XX:XX:XX</td>
-                    <td>XX:XX:XX</td>
-                </tr>
+                <p>Você ainda não possui nenhum horário registrado.</p>
             @endif
 
         </tbody>

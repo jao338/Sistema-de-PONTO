@@ -105,12 +105,9 @@
         </div>
 
     @endforeach --}}
-
-@endif
-
     <table class="table table-borderless table-responsive shadow">
         <thead>
-
+    
             <tr class="border-top border-bottom">
                 <th scope="col" class="border-end pL-16">Nome</th>
                 <th scope="col" class="border-end pL-16">Descrição</th>
@@ -171,7 +168,9 @@
                     <td>XX:XX:XX</td>
                 </tr>
             @endif
-
+    
         </tbody>
-
+    
     </table>
+
+@endif

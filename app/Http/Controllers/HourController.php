@@ -26,16 +26,69 @@ class HourController extends Controller{
         
         $currentTime = Carbon::now()->format('Y-m-d H:i:s');
 
-        // $search = Hour::where('user_id', '=', "$user->id")->get();
-
+        $search = Hour::where('user_id', '=', "$user->id")->get();
+        
         $hour = new Hour();
+        
+        //  Verifica se existe algum registro desse usuário
+        if(count($search) > 0){
 
-        $hour->user_id = $user->id;
-        $hour->entrance = $currentTime;
+            foreach ($search as $item) {
 
-        $hour->save();
+                //  Caso o valor de coluna de entrada for igual o dia de atual, um update deve ser feito. Caso contrário, é inseri no banco de dados
+                if($item->entrance->format('Y-m-d') == Carbon::now()->format('Y-m-d')){
+            
+                    if ($item->entrance_lunch == NULL) {
+                
+                        //  Atualiza o registro de entrada para o almoço
+                        Hour::where('id', $item->id)->update(['entrance_lunch' => $currentTime]);
 
-        return redirect("dashboard", 302)->with("msg", "Registrado com sucesso");
+                        return redirect("dashboard", 301)->with("msg", "Entrada para o almoço registrada");
+
+                    }elseif($item->exit_lunch == NULL){
+
+                        //  Atualiza o registro de saida do almoço
+                        Hour::where('id', $item->id)->update(['exit_lunch' => $currentTime]);
+
+                        return redirect("dashboard", 301)->with("msg", "Saída do almoço registrada");
+
+                    }elseif($item->exit == NULL){
+
+                        //  Atualiza o registro de saída
+                        Hour::where('id', $item->id)->update(['exit' => $currentTime]);
+
+                        return redirect("dashboard", 301)->with("msg", "Saída registrada");
+
+                    }else{
+                        
+                        return redirect("dashboard", 301)->with("msg", "Todos os horários já foram registrados");
+                    
+                    }
+
+                }else{
+                    
+                    $hour->user_id = $user->id;
+                    $hour->entrance = $currentTime;
+            
+                    $hour->save();
+
+                    return redirect("dashboard", 301)->with("msg", "Entrada registrada");
+                }
+
+            }
+
+        }else{
+            
+            $hour->user_id = $user->id;
+            $hour->entrance = $currentTime;
+        
+            $hour->save();
+
+            //  O status 301 significa que a URL foi redirecionamento permanentemente
+            return redirect("dashboard", 301)->with("msg", "Entrada registrada");
+
+        }
+        
 
     }
 
