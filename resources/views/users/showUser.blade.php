@@ -22,7 +22,7 @@
         <div class="col-md-6">
             <h2 class="fs-2 pB-8">Visualizando o usuário <span class="fw-bold">{{ $user->name }}</span></h2>
 
-            <p>O usuário pertence ao departamento <span class="fw-bold"></span></p>
+            <p>O usuário pertence ao setor de <span class="fw-bold">{{ $user->sector_name }}</span></p>
         </div>
 
         <div class="d-flex justify-content-end align-items-center col-md-6">

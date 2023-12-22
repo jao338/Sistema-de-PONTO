@@ -2,6 +2,6 @@ X - Ainda é necessário melhorar o responsivo
 
 X - Exportar uma tabela do excel com base nos registros de ponto do usuário autenticado no. Usar  "https://docs.laravel-excel.com/3.1/getting-started/contributing.html"
 
-X - Melhorar as rotas e os redirecionamentos e evitar que todos os redirecionamentos se vão para uma única view
+X - Melhorar as rotas e os redirecionamentos e evitar que todos os redirecionamentos vão para uma única view
 
 X - Ainda é necessário realizar tesets em diferentes dias, principalmente feriados e finais de semana

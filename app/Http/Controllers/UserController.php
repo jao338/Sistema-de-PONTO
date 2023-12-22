@@ -65,8 +65,15 @@ class UserController extends Controller{
         //  Busca um usuário específico pelo $id
         $user = User::findOrFail($id);
 
+        $users = User::join('sectors', 'sec_id', '=', 'sectors.id')
+            ->select('users.*', 'sectors.name as sector_name')
+            ->where('users.id', $user->id)
+            ->first();
+
+        // dd($users);
+        
         //  Retorna a view de dashboard com um coleção de objetos 
-        return view("dashboard", ['user' => $user]);
+        return view("dashboard", ['user' => $users]);
     }
 
     public function destroy($id){
