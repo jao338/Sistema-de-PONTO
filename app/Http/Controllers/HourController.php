@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\UsersExport;
 use App\Models\Hour;
 use Carbon\Carbon;
+use Cmixin\BusinessTime;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -30,6 +31,15 @@ class HourController extends Controller{
         //  Recupera o horário atual formatado com o formato ('Y-m-d H:i:s')
         $currentTime = Carbon::now()->format('Y-m-d H:i:s');
 
+        BusinessTime::enable(Carbon::class);
+
+        //  Verifica se o dia atual é feriado ou final de semana, ou seja não é um dia útil
+        if(!Carbon::isBusinessDay()){
+
+            return redirect("dashboard", 301)->with("msg", "Hoje não é um dia útil");
+
+        }
+
         //  Recupera todos os registros de horário com base no id do usuário autenticado
         $search = Hour::where('user_id', '=', "$user->id")->get();
         
@@ -38,7 +48,7 @@ class HourController extends Controller{
         
         //  Verifica se existe algum registro desse usuário.
         if(count($search) > 0){
-
+            
             //  Caso o valor de coluna de entrada for igual o dia de atual, um update é feito. Caso contrário, um novo registro é inserido no banco de dados
             foreach ($search as $item) {
 
@@ -81,13 +91,12 @@ class HourController extends Controller{
                     }
                 //  Caso não exista nenhum registro com a data atual, um insert é feito.
                 }else{
-                    
                     $hour->user_id = $user->id;
                     $hour->entrance = $currentTime;
-            
+                
                     $hour->save();
 
-                    //  Redireciona para a view de dashboard
+                    //  Redireciona para a view de dashboard. O status 301 significa que a URL foi redirecionada permanentemente
                     return redirect("dashboard", 301)->with("msg", "Entrada registrada");
                 }
             }
@@ -125,10 +134,13 @@ class HourController extends Controller{
         //  Recupera o usuário autenticado
         $user = auth()->user();
 
+        //  Recupera as informações com base em uma data no formato "xxxx-xx-xx", em um dia específico ou em uma horário específico no formato "xx:xx:xx"
         $search = Hour::where("user_id", $user->id)
             ->whereDate("entrance", date("Y-m-d", strtotime($request->searchHours)))
             ->orWhere("user_id", $user->id)
             ->whereDay("entrance", $request->searchHours)
+            ->orWhere("user_id", $user->id)
+            ->whereTime("entrance", $request->searchHours)
             ->get();
 
 

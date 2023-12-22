@@ -1,9 +1,7 @@
-X - Ao criar um registro verificar se a data atual é um feriado ou fim de semana, caso seja o cadastro não podera ser feito
+X - Ainda é necessário melhorar o responsivo
 
-X - Adicionar um modal ou popover de confirmação antes de mudanças críticas
+X - Exportar uma tabela do excel com base nos registros de ponto do usuário autenticado no. Usar  "https://docs.laravel-excel.com/3.1/getting-started/contributing.html"
 
-X - Implementar a busca por horários e dias na tela de "Meus horários"
+X - Melhorar as rotas e os redirecionamentos e evitar que todos os redirecionamentos se vão para uma única view
 
-X - Melhorar o responsivo
-
-X - Implementar a exportação da tabela de horários para excel, usando "https://docs.laravel-excel.com/3.1/getting-started/contributing.html"
+X - Ainda é necessário realizar tesets em diferentes dias, principalmente feriados e finais de semana

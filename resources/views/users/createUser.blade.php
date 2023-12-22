@@ -1,9 +1,9 @@
 <form method="POST" action="/dashboard/users/create" class="flex flex-col">
     @csrf
 
-    <div class="row flex justify-center p-32" style="height: 70vh">
+    <div class="row flex justify-center p-32" style="min-height: 70vh">
 
-        <div class="rectangle border p-32">
+        <div class="rectangle border p-32" id="tableUser">
 
             <div class="d-flex justify-content-between mB-32">
 

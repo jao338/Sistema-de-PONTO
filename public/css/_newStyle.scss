@@ -114,3 +114,13 @@ th{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+@media only screen and (max-width: 800px){
+    #tableSector{
+        width: 80vw !important;
+    }
+
+    #tableUser{
+        width: 90vw !important;
+    }
+}

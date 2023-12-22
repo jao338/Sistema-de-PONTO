@@ -1,5 +1,5 @@
 @if (session('msg'))
-    <p class="mB-16">{{ session('msg') }}</p>
+    <p class="mB-16 text-success">{{ session('msg') }}</p>
 @endif
 
     <div class="d-flex align-items-center mB-16">
