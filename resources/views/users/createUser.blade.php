@@ -56,7 +56,7 @@
 
             </div>
 
-            <x-input-label for="sec_id" :value="__('Departamentos')" class="pL-8 pB-8"/>
+            <x-input-label for="sec_id" :value="__('Setores')" class="pL-8 pB-8"/>
             <select class="d-flex form-select mB-32" id="sec_id" name="sec_id">
 
                 @if (!isset($sectors))

@@ -20,6 +20,10 @@
         
         @include('users/users')
 
+    @elseif($currentRoute == "dashboard-hours-search")
+        
+        @include('hours/searchHour')
+
     @elseif($currentRoute == "dashboard-register")
         
         @include('hours/hours')
@@ -50,11 +54,11 @@
 
     @elseif($currentRoute == "dashboard-sectors-search")
 
-        @include('sections/sectorSearch')
+        @include('sections/searchSector')
 
     @elseif($currentRoute == "dashboard-users-search")
 
-        @include('users/userSearch')
+        @include('users/searchSector')
 
     @elseif($currentRoute == "dashboard-users-edit")
         

@@ -106,7 +106,7 @@
 
             <tr class="border-top border-bottom">
                 <th scope="col" class="border-end pL-16">Nome</th>
-                <th scope="col" class="border-end pL-16">Departamento</th>
+                <th scope="col" class="border-end pL-16">Setor</th>
                 <th scope="col" class="border-end pL-16">Ver</th>
                 <th scope="col" class="border-end pL-16">Editar</th>
                 <th scope="col">Excluir</th>
@@ -153,6 +153,7 @@
                             </form>
                         </td>
                     </tr>
+                    
                 @endforeach
             
             @else

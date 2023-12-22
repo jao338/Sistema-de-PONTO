@@ -23,8 +23,9 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [HourController::class, 'index'])->middleware('auth')->name("dashboard");
 Route::post('/dashboard/register', [HourController::class, 'register'])->middleware('auth')->name("dashboard-register");
-
 Route::post('/users/profile/export', [HourController::class, 'export'])->middleware(['auth', 'verified'])->name('dashboard-users-export');
+Route::get('/dashboard/search', [HourController::class, 'search'])->middleware(['auth', 'verified'])->name('dashboard-hours-search');
+
 Route::get('/dashboard/users', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard-users');
 Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard-users-create');
 Route::post('/dashboard/users/create', [UserController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard-users-create');

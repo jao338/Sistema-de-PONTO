@@ -18,6 +18,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+     // Define quais colunas podem ser preenchidas em massa
     protected $fillable = [
         'name',
         'email',
@@ -40,16 +42,20 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
+
+     // Converte os atributos automaticamente para um tipo de dado especifico
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
+    //  Um ou muitos usuários podem possuir um ou muitos horários
     public function hours(){
 
         return $this->hasMany(Hour::class);
 
     }
 
+    //  Um ou muitos usuários pertencem a um setor
     public function sector(){
      
         return $this->belongsTo(Sector::class);

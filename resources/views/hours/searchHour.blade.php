@@ -72,7 +72,7 @@
                 @endforeach
             
             @else
-                <p>Você ainda não possui nenhum horário registrado.</p>
+                <p>Nenhum registro foi encontrado, <a href="/dashboard" style="color: blue">ver todos</a></p>
             @endif
 
         </tbody>
