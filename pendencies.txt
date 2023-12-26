@@ -1,11 +1,3 @@
 X - Ao criar um registro verificar se a data atual é um feriado, caso seja o cadastro não podera ser feito
 
-X - Adicionar um modal ou popover de confirmação antes de mudanças críticas
-
-X - Implementar a busca por horários e dias na tela de "Meus horários"
-
-X - Comentar trechos do código, principalmente nos controllers
-
-X - Melhorar o responsivo
-
 X - Implementar a exportação da tabela de horários para excel, usando "https://docs.laravel-excel.com/3.1/getting-started/contributing.html"

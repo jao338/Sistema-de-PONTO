@@ -24,80 +24,62 @@ class HourController extends Controller{
 
     public function register(){
 
+        //  Recupera o usuário autenticado
         $user = auth()->user();
         
+        //  Recupera o horário atual no formato "XXXX-XX-XX XX:XX:XX"
         $currentTime = Carbon::now()->format('Y-m-d H:i:s');
-
-        $search = Hour::where('user_id', '=', "$user->id")->get();
         
+        //  Objeto da classe "Hour"
         $hour = new Hour();
-        
-        //  Verifica se existe algum registro desse usuário
-        if(count($search) > 0){
 
-            $msg = NULL;
+        //  Busca em todos os registros onde "user_id" for igual ao usuáio autenticado e onde a coluna "entrance" for igual ao dia atual. O método "first()" retorna o primeiro registro encontrado
+        $search = Hour::where('user_id', $user->id)
+            ->whereDate('entrance', Carbon::now()->toDateString())
+            ->first();
 
-            foreach ($search as $item) {
+        //  Retorna "true" caso tenha encontrado algum registro. Ou seja, caso a data atual já tenha sido registrada.
+        if ($search) {
 
-                //  Caso o valor de coluna de entrada for igual o dia de atual, um update deve ser feito. Caso contrário, é inseri no banco de dados
-                if($item->entrance->format('Y-m-d') == Carbon::now()->format('Y-m-d')){
-            
-                    if ($item->entrance_lunch == NULL) {
-                
-                        $msg = "Entrada para o almoço registrada";
+            //  Caso a coluna "entrance_lunch" seja nula, ela é atualizada com o data atual
+            if ($search->entrance_lunch === NULL) {
 
-                        //  Atualiza o registro de entrada para o almoço
-                        Hour::where('id', $item->id)->update(['entrance_lunch' => $currentTime]);
+                $search->update(['entrance_lunch' => $currentTime]);
+                $msg = "Entrada para o almoço registrada";
 
-                    }elseif($item->exit_lunch == NULL){
+            //  Caso a coluna "exit_lunch" seja nula, ela é atualizada com o data atual
+            } elseif ($search->exit_lunch === NULL) {
 
-                        $msg = "Saída para o almoço registrada";
+                $search->update(['exit_lunch' => $currentTime]);
+                $msg = "Saída para o almoço registrada";
 
-                        //  Atualiza o registro de saida do almoço
-                        Hour::where('id', $item->id)->update(['exit_lunch' => $currentTime]);
+            //  Caso a coluna "exit" seja nula, ela é atualizada com o data atual
+            } elseif ($search->exit === NULL) {
 
+                $search->update(['exit' => $currentTime]);
+                $msg = "Saída registrada";
 
-                    }elseif($item->exit == NULL){
+            //  Caso contrário não faça nada
+            } else {
 
-                        $msg = "Saída registrada";
+                $msg = "Todos os horários já foram registrados";
 
-                        //  Atualiza o registro de saída
-                        Hour::where('id', $item->id)->update(['exit' => $currentTime]);
-
-                    }else{
-                        
-                        $msg = "Todos os horário ja foram registrados";
-
-                    }
-
-                }else{
-                    
-
-                    $hour->user_id = $user->id;
-                    $hour->entrance = $currentTime;
-            
-                    $hour->save();
-                    
-                    $msg = "Entrada registrada";
-
-                }
             }
 
-            return redirect("dashboard", 301)->with("msg", $msg);
-
-        }else{
-            
+        //  Se o registro não for encontrado, um novo horário é registrado com a data atual
+        } else {
 
             $hour->user_id = $user->id;
             $hour->entrance = $currentTime;
-        
+
             $hour->save();
 
-            //  O status 301 significa que a URL foi redirecionamento permanentemente
-            return redirect("dashboard", 301)->with("msg", "Entrada registrada");
-
+            $msg = "Entrada registrada";
         }
-        
+
+        //  Redireciona para a view de dashboard
+        return redirect("dashboard", 301)->with("msg", $msg);
+
 
     }
 
@@ -105,10 +87,31 @@ class HourController extends Controller{
 
         $user = auth()->user();
 
-        $data = Hour::where('user_id', '=', "$user->id")->get();
+        // $data = Hour::where('user_id', '=', "$user->id")->get();
 
         return Excel::download(new UsersExport, 'hours.xlsx');
 
     }
+
+    public function search(Request $request){
+
+        //  Recupera o usuário autenticado
+        $user = auth()->user();
+
+        //  Recupera as informações com base em uma data no formato "xxxx-xx-xx", em um dia específico ou em uma horário específico no formato "xx:xx:xx"
+        $search = Hour::where("user_id", $user->id)
+            ->whereDate("entrance", date("Y-m-d", strtotime($request->searchHours)))
+            ->orWhere("user_id", $user->id)
+            ->whereDay("entrance", $request->searchHours)
+            ->orWhere("user_id", $user->id)
+            ->whereTime("entrance", $request->searchHours)
+            ->get();
+
+
+        //  Retorna a view de dashboard com uma coleção de objetos
+        return view("dashboard", ['hours' => $search]);
+
+    }
+
 
 }

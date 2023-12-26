@@ -20,7 +20,6 @@
         
         </form>
     </div>
-    
     @if (isset($hours) && count($hours) > 0)
 
     <table class="table table-borderless table-responsive shadow">
@@ -73,11 +72,9 @@
                 @endforeach
             
             @else
-                <p>Você ainda não possui nenhum horário registrado.</p>
+                <p>Nenhum registro foi encontrado, <a href="/dashboard" class="text-primary">ver todos</a></p>
             @endif
 
         </tbody>
 
     </table>
-
-

@@ -18,6 +18,8 @@ class Hour extends Model{
 
     protected $dates = ['entrance', 'entrance_lunch', 'exit', 'exit_lunch'];
 
+    protected $fillable = ['entrance', 'entrance_lunch', 'exit', 'exit_lunch'];
+
     public function user(){
 
         return $this->belongsTo(User::class);
